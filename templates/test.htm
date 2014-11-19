@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0025)http://www.mngood.com/zu/ -->
+{%load staticfiles%}
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>旅游</title>
+<meta name="keywords" content="酒店,旅馆,青年旅社,短租房预订,酒店预订,青年旅社预订">
+<meta name="description" content="古镇周边酒店在线预订提供短租房、青年旅社网上预订与价格查询">
+<link href="http://www.mngood.com/zu/favicon.ico" rel="shortcut icon">
+<link href="./static/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./static/jquery-1.4.2.min.js"></script>
+</head>
+
+
+<!--头部内容-->
+<body><div class="d3_header">
+	<div class="mainnav_wrap">
+        
+        <div class="mainnav">
+            <div class="logo">
+            <h1>骏商短租企业版</h1>
+            <a title="骏商短租企业版" href="http://www.mngood.com/zu"><img width="273" height="57" alt="骏商短租企业版" src="./static/logo.gif"></a>
+            </div>
+            <div class="right w_450 mt25">
+                <div class="hm_mod_search_gb" style="display:none ">
+                	<input type="text" value="输入地区、道路或地址名称等" class="search_text" autocomplete="off">
+                    <span class="search_buttom"><button type="button">搜 索</button></span>
+                </div>
+                <div class="free_room"><a href="http://www.mngood.com/zu/publish.asp">免费发布房间</a></div>
+                <div class="mainnav2">
+                    客服QQ:（<span class="kfzx">1184884091</span>） 
+                    <span class="gray9">周一至周日 早9点--21点</span>&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+        
+        <div class="hm_mod_nav_gb">
+            <ul class="hm_mod_nav">
+                <li><a class="current" href="http://www.mngood.com/zu">首页</a></li>
+                <li><a href="http://www.mngood.com/zu/city.asp">城市分类</a></li>
+                <li><a href="http://www.mngood.com/zu/help/index.asp?c=question">帮助中心</a></li>
+            </ul>
+            <!--登陆前-->
+			
+            <div class="hm_mod_login"><a href="http://www.mngood.com/zu/user/account/login.asp">登陆</a> | <a href="http://www.mngood.com/zu/user/account/signup.asp">注册</a></div>
+            <!--登陆前-->
+			
+        </div>
+    </div>
+</div>
+<!--头部内容-->
+
+
+
+<script language="javascript" src="./static/inad_duice.js"></script>
+<script language="javascript" src="./static/time.js"></script>
+
+<script language="javascript">
+	
+	$(function(){
+		$(".ind-current li").click(function(){
+			$(".ind-current li").each(function(){
+			  $(this).attr("class","");
+			 });
+			$("#priviewImg").attr("src",$(this).attr("imgSrc"));
+
+			$(".hot-titl h3 span a").attr("href",($(this).attr("llianjie")));
+			$(".hot-titl h3 span a").html($(this).attr("llianjieName"));
+
+			$(".hot-titl h3 a").attr("href",($(this).attr("llianjie2")));
+			$(".hot-titl h3 span a").html($(this).attr("llianjie2Name"));
+
+			$(".hot-titl p").html($(this).attr("address"));
+			$(".hot-titr span").html($(this).attr("rizujia"));
+			
+			$(this).attr("class","current");
+		});
+		
+		var flag=0;
+		function privewShow(){
+				
+				$(".ind-current li").each(function(){
+				   if($(this).attr("class")=="current"){
+						$(this).attr("class","");
+						flag = $(this).index();
+						flag++;
+						if(flag>3){flag=0;}
+						$("#priviewImg").attr("src",$(".ind-current li:eq("+flag+")").attr("imgSrc"));
+
+						$(".hot-titl h3 a").attr("href",($(".ind-current li:eq("+flag+")").attr("llianjie2")));
+						$(".hot-titl h3 span a").html($(".ind-current li:eq("+flag+")").attr("llianjie2Name"));
+
+						$(".hot-titl p").html($(".ind-current li:eq("+flag+")").attr("address"));
+						$(".hot-titr span").html($(".ind-current li:eq("+flag+")").attr("rizujia"));
+
+
+						$(".ind-current li:eq("+flag+")").attr("class","current");
+						return false;
+				   }
+			 });
+			 
+		}
+		setInterval(function(){privewShow();},5000);
+		
+
+	});
+</script>
+<!-- 选择城市 begin -->
+
+<div class="sanjiao"></div>
+<div class="city-main">
+	<div class="top">
+  		<p>选择你想去的城市</p>
+        <span id="closeSelectCity"></span>
+  	</div>
+  	<div class="r">
+        <p><b>选择城市:</b></p> 
+		<a href="javascript:void(0)" class="city">不限</a> 
+        
+		<a href="javascript:void(0)" class="city">福州</a> 
+		
+		<a href="javascript:void(0)" class="city">惠州</a> 
+		
+		<a href="javascript:void(0)" class="city">莆田</a> 
+		
+		<a href="javascript:void(0)" class="city">厦门</a> 
+		
+  	</div>
+  
+  
+</div>
+
+<script language="javascript" src="./static/main.js"></script>
+<!-- 选择城市 end -->
+
+<div class="area">
+	<div class="w">
+        <div class="ind-propic"></div>
+        <!-- 首屏 begin -->
+        <div class="ind-first clearfix">
+        	<div class="col-1 fl">
+			<form method="get" name="searchForm" action="http://www.mngood.com/zu/list/s.asp">
+            	<h2>寻找旅行中的家...</h2>
+                <dl class="clearfix">
+                	<dt>入住城市：</dt>
+                    <dd>
+					<input type="text" id="city" name="city" maxlength="10" readonly="" placeholder="YYYY-MM-DD" value="选择您想去的城市" class="ind-input ">
+					<input type="hidden" name="citycode" id="citycode">
+					</dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>入住日期：</dt>
+                    <dd>
+					<input type="text" readonly="readonly" value="2014-11-13" id="fromDate" name="fromDate" class="ind-input" onfocus="HS_setDate(this)">
+					
+					</dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>退房日期：</dt>
+                    <dd>					
+					<input type="text" readonly="readonly" value="2014-11-14" id="toDate" name="toDate" class="ind-input" onfocus="HS_setDate(this)">
+					</dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>关键字：</dt>
+                    <dd><input type="text" id="keyword" name="keyword" value="输入地区、道路或地址名称等" class="ind-input"></dd>
+                </dl>
+                <div class="ind-ser"><button type="submit">搜索</button></div>
+			</form>
+            </div>
+			<!-- 图片切换推荐短租房 begin -->
+			
+
+<div class="col-2 fr">
+	<div class="ind-slider">
+		<div class="hot-img">
+			<ul>
+				<li><img src="./static/001.jpg" width="470" height="300" id="priviewImg"></li>
+			</ul>
+		</div>
+        <div class="hot-titbg"></div>
+		<div class="hot-tit">
+			<div class="hot-titl">
+				<h3><span><a href="http://www.mngood.com/zu/p/?350201_2.html">[湖里]</a></span><a href="http://www.mngood.com/zu/p/?350201_2.html">五月客栈3号楼，可亲自下厨烹饪美3...</a></h3>
+				<p>厦门曾厝垵</p>
+			</div>
+			<div class="hot-titr">
+			日租价：
+			<span>￥50&nbsp;<b>起</b></span>
+			</div>
+            
+		</div>
+	</div>
+	<ul class="ind-current">
+		
+		<li class="" imgsrc="/zu/UploadFile/prd001/003.jpg" llianjie="http://www.mngood.com/zu/p/?350201_3.html" llianjiename="" address="厦门曾厝垵" rizujia="&amp;yen50&#160;&lt;b&gt;起&lt;/b&gt;" llianjie2="http://www.mngood.com/zu/p/?350201_3.html" llianjie2name="[湖里]"></li>
+	
+		<li imgsrc="/zu/UploadFile/prd002/001.jpg" llianjie="http://www.mngood.com/zu/p/?350201_2.html" llianjiename="" address="厦门曾厝垵" rizujia="&amp;yen50&#160;&lt;b&gt;起&lt;/b&gt;" llianjie2="http://www.mngood.com/zu/p/?350201_2.html" llianjie2name="[湖里]" class=""></li>
+	
+	</ul>
+</div>
+
+			<!-- 图片切换推荐短租房 end -->
+        </div>
+        <!-- 首屏 end -->
+        <!-- 内容 begin -->
+        <div class="col-main clearfix">
+        	<div class="col-mainl fl">
+			
+            	<!-- 价格 begin -->
+                
+<div class="ind-around">
+	<h4 class="pro-lis">价格 <span>显示以下价格区间的短租房<b>（￥ 人民币）</b></span></h4>
+	<ul class=" clearfix">
+		
+		<li><a href="http://www.mngood.com/zu/list/?lowprice-0_highprice-100.html">￥ 100以下</a><span> 2家短租房</span></li>
+		
+	   
+		<li><a href="http://www.mngood.com/zu/list/?lowprice-101_highprice-200.html">￥ 101-200</a><span> 0家短租房</span></li>
+		
+	   
+		<li><a href="http://www.mngood.com/zu/list/?lowprice-201_highprice-300.html">￥ 201-300</a><span> 0家短租房</span></li>
+		
+	   
+		<li><a href="http://www.mngood.com/zu/list/?lowprice-301_highprice-500.html">￥ 301-500</a><span> 0家短租房</span></li>
+		
+	   
+		<li><a href="http://www.mngood.com/zu/list/?lowprice-500_highprice-999999.html">￥ 500以上</a><span> 0家短租房</span></li>
+		
+	   
+	</ul>
+</div>
+
+				<!-- 价格 end -->
+                
+				<!-- 景点酒店数字 begin -->
+                
+<div class="ind-around">
+	<h4 class="hotel-lis">景点与地标 <span>显示以下景点附近的短租房<b>（￥ 人民币）</b></span></h4>
+	<ul class=" clearfix">
+		
+		<li><a href="http://www.mngood.com/zu/landprd/?lid-5.html">鼓浪屿 </a><span> 2家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/landprd/?lid-4.html">飞机场 </a><span> 2家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/landprd/?lid-3.html">厦门站 </a><span> 2家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/landprd/?lid-2.html">厦门渡轮码头 </a><span> 2家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/landprd/?lid-1.html">厦门大学 </a><span> 2家短租房</span></li>
+		
+	</ul>
+</div>
+
+				<!-- 景点酒店数字 end -->
+				
+				<!-- 城市酒店数字 begin -->
+                
+
+<div class="ind-around">
+	<h4 class="region-lis">地区 <span>显示以下地区附近的短租房<b>（￥ 人民币）</b></span></h4>
+	<ul class=" clearfix">
+		
+		<li><a href="http://www.mngood.com/zu/city/?fuzhou.html">福州 </a><span> 0家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/city/?huizhou.html">惠州 </a><span> 0家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/city/?putian.html">莆田 </a><span> 0家短租房</span></li>
+		
+		<li><a href="http://www.mngood.com/zu/city/?xiamen.html">厦门 </a><span> 2家短租房</span></li>
+		
+	</ul>
+</div>
+
+				<!-- 城市酒店数字 end -->
+            </div>
+            <!-- 热点短租房 begin -->
+			
+<div class="col-mainr fl">
+	<h2>推荐短租房</h2>
+	<ul>
+		
+	</ul>
+</div>
+
+			<!-- 热点短租房 end -->
+        </div>
+    </div>
+</div>
+
+<script language="JavaScript" type="text/javascript"> 
+var initContent;
+initContent = "输入地区、道路或地址名称等";
+		function addListener(element,e,fn){ 
+		if(element != null){
+			 if(element.addEventListener){ 
+			element.addEventListener(e,fn,false); 
+			 } else { 
+			 element.attachEvent("on" + e,fn); 
+			  } 
+			} 
+			
+		} 
+		
+ var indexKeyword = document.getElementById("keyword"); 
+            addListener(indexKeyword,"click",function(){ 
+                indexKeyword.value = ""; 
+            }) 
+            addListener(indexKeyword,"blur",function(){ 
+				if(indexKeyword.value == ""){
+                	indexKeyword.value = initContent; 
+				}
+            })      
+           
+    </script> 
+<div class="link-area">
+	<p class="link-num"><b>友情</b>链接</p>
+	<div class="index_link">
+		<ul>
+			
+			<li><a href="http://www.92wudao.com/" target="_blank">就爱舞蹈网</a></li>
+			
+			<li><a href="http:" target="_blank">www.sohu.com</a></li>
+			
+			<li><a href="./static/古镇周边酒店在线预订 - 酒店、青年旅社网上预订与价格查询！.htm" target="_blank">闽南古镇酒店预订</a></li>
+			
+			<li><a href="http://www.mngood.com/" target="_blank">闽南古镇旅游</a></li>
+			
+		</ul>
+	</div>        
+</div>
+ <div class="d3_footer">
+	<div class="grid_c1">
+    	<div class="mod_help">
+        	<dl>
+            	<dt><b class="bg bang"></b>用户帮助</dt>
+                <dd>
+                	<ul>
+                    	<li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=question">常见问题</a>
+                        </li><li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=pay">如何付款</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+            	<dt><b class="bg guize"></b>房东/房客规则</dt>
+                <dd>
+                	<ul>
+                    	<li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=lodgerrule">房客规则</a>
+                        </li><li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=ownerrule">房东规则</a></li>
+                        <li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=roomspec">房间审核规范</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+            	<dt><b class="bg hezuo"></b>合作与联系</dt>
+                <dd>
+                	<ul>
+                    	<li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=friendlink">友情链接</a>
+                        </li><li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=cooperation">商务合作</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="none">
+            	<dt><b class="bg xinxi"></b>公司信息</dt>
+                <dd>
+                	<ul>
+                    	<li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=aboutus">关于我们</a>
+                        </li><li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=terms">用户协议</a></li>
+                        <li><a target="_blank" href="http://www.mngood.com/zu/help/index.asp?c=privacy">隐私声明</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        
+        <div class="mod_copyright">
+            <p>Copyright &#169; 2012 古镇周边酒店在线预订 All Rights Reserved.</p>
+            <p>Powered By 古镇周边酒店在线预订</p>
+            <p>[福建省ICP网站备案资质[闽ICP备07075584号-2]]</p>
+        </div>
+        
+    </div>
+</div></body></html>

@@ -1,0 +1,14 @@
+1、线路特色
+2、航班信息
+3、入住酒店
+4、参考行程
+5、费用说明
+6、如何预订
+7、重要提醒
+8、用户点评
+9、用户游记
+# -*- coding: utf-8 -*-
+http://www.ly.com/dujia/tours/206744/?ak=WNwIjF%2b7P5RnR2OMMMOJzBv61aTA%2fxRZ&selltype=3
+
+http://learnpythonthehardway.org/book/ex5.html
+http://doc.scrapy.org/en/0.24/intro/tutorial.html
